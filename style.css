@@ -1,9 +1,72 @@
 
+body{
+    background-color: cornflowerblue;
+}
+
 .titulo{
+    
+    background-color: green;
     text-align: center;
+    margin: 0;
+    padding: 0;
+    border: none;
+    width: 100vw;
+    left:0;
+    top: 0;
+    position: fixed;
+
 }
 
-body {
-background-color: #67f158;
+.table{
+    background-color: chartreuse;
+    width: 80vw;
+    border-collapse: collapse;
+    border:solid;
+    margin:auto;
+    padding: 10px;
+}
+
+table tr th {
+    
+    background-color:#4caf50;
+    color: white;
+    padding-top: 12px;
+    padding-bottom: 8px;
+    padding-left: 8px;
+    padding-right:8px;
+    text-align:center;
+}
+
+table tr td {
+    
+    border: solid 1px #ddd; 
+    padding:8px;
+    margin: 30px;
+    text-align:center;
+}
+tr:nth-child(even){
+    background-color:rgb(121, 119, 245);
+}
+button, select{
+    border: solid 1px #ddd; 
+    background-color:greenyellow;
+    margin-top: 20%;
+    margin-left: 16px ;
+    
 
 }
+
+button:hover{
+    color: black;
+    background-color: gray;
+    cursor: pointer;
+    
+}
+
+select:hover{
+    color: black;
+    cursor: pointer;
+    
+}
+
+
