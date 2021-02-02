@@ -1,3 +1,31 @@
+const express = require("express");
+const app = express();
+
+const bodyParser = require('body-parser');
+const { mongoose } = require('./conexion');
+
+
+
+app.use("public",express.static("public"));
+
+app.use(bodyParser.json())
+app.use(bodyParser.urlencoded({extended:true}));
+
+
+app.set("view engine","jade");
+
+
+// app.get("/", function(req,res){
+//   User.find(function(err,users){
+//     if(err) return console.error(err);
+//     res.render("index", {usuarios: users});
+
+//   });
+// });
+
+
+
+/////funcion de guardar
   function guardar(){
    
     const _num = document.getElementById("numero").value;
@@ -14,7 +42,7 @@
     
 
 }
-
+///////////funcion de borrar
 function borrar(t)
     {
         const td = t.parentNode;
