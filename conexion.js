@@ -1,4 +1,6 @@
    const mongoose = require('mongoose')
+
+   /////////////////codigo para la conexion con la bd de Mongoose, instalar: npm install mongoose
  
    mongoose.connect('mongodb://localhost/Dwh', {useNewUrlParser: true})
    .then(db => console.log('DB is connect'))
