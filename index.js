@@ -19,14 +19,18 @@ app.listen(app.get('port'),() => {
 app.use(bodyParser.json()) 
 app.use(bodyParser.urlencoded({extended:true}));
 
-
-  app.get('/api/insertar',(req,res)=>{
-    res.send(200,{insertar:[]})
+////Me muestra lo insertado  en la URL indicada
+  app.get('/api',(req,res)=>{
+     Dwh.find({},(err,insertar) => {
+      if(err) return res.status(500).send({message:`Error al realizar la peticion:${err}`})
+      if(!insertar) return res.status(404).send({message:`No existen productos`})
+      res.send(200,{insertar})
+     });
    })
   
    ///////////// Metodo Get para realizar busquedas por ID
-   app.get('/api/insertar/:insertarId',(req, res)=>{
-     let insertarId = req.params.insertarId
+   app.get('/api/:id',(req, res)=>{
+     let insertarId = req.params.id
      
     Dwh.findById(insertarId,(err, insertar)=>{
       if(err) return res.status(500).send({message:`Error al realizar la peticion:${err}`})
@@ -35,8 +39,9 @@ app.use(bodyParser.urlencoded({extended:true}));
       res.status(200).send({insertar})
     })
    })
+
   /////metodo Post para insertar datos en el esquema creado
-   app.post('/api/insertar',(req,res)=>{
+      app.post('/api/insertar',(req,res)=>{
       console.log('POST /api/insertar')
       console.log(req.body)
 
@@ -46,20 +51,21 @@ app.use(bodyParser.urlencoded({extended:true}));
       insertar.linea = req.body.linea
       insertar.proceso = req.body.proceso
       insertar.dia = req.body.dia
-      insertar.status = req.body.status
+      insertar.status = 1
 
-      insertar.save((err,insertarStored)=> {
+      insertar.save((err,documentoRes)=> {
         if(err) res.status(500).send({message:`Error al salvar en la Base de datos ${err}`})
-
-        res.status(200).send({insertar: insertarStored})
+        else{
+          res.status(200).send({insertar: documentoRes, status: 'exitoso'});
+        }
       })
    })
   
-   app.put('/api/insertar/:insertarID',(req,res)=>{
-  
+   app.put('/api/insertar/:id',(req,res)=>{
+
    })
   
-   app.delete('/api/insertar/insertarId',(req,res)=>{
+   app.delete('/api/eliminar/:id',(req,res)=>{
   
    })
 
