@@ -5,6 +5,7 @@ const express = require("express");
 const app = express();
 
 const { mongoose } = require('./conexion');
+const { update } = require('./Schema');
 const Dwh = require('./Schema')
 
  //se configura el puerto 3000
@@ -61,12 +62,31 @@ app.use(bodyParser.urlencoded({extended:true}));
       })
    })
   
+   ////// permite actualizar pero el staus se devuelve null
    app.put('/api/insertar/:id',(req,res)=>{
+     
+      let updateID = req.params.id
+      let update = req.body
+      Dwh.findByIdAndUpdate(updateID, update,(err, actualizado) =>{
+        if(err) res.status(500).send({message:`error al actualizar el producto: ${err}`})
+        else{ 
+        res.status(200).send({archivo: actualizado})
+         }
+      })
 
    })
-  
+   ///// metodo para Eliminar por ID
    app.delete('/api/eliminar/:id',(req,res)=>{
-  
+     let eliminarid = req.params.id
+     Dwh.findById(eliminarid,(err, eliminar)=>{
+       if(err) res.status(500).send({message:`error al borrar le producto: ${err}`})
+       
+        eliminar.remove(err =>{
+          if(err) res.status(500).send({message:`error al borrar le producto: ${err}`})
+          res.status(200).send({message:'El producto ha sido eliminado'})
+        })
+       
+     })
    })
 
 ///////////////////pruebas de conexion
@@ -109,29 +129,3 @@ app.use(bodyParser.urlencoded({extended:true}));
 
 
 
-/////funcion de guardar
-//   function guardar(){
-   
-//     const _num = document.getElementById("numero").value;
-//     const _cod = document.getElementById("codigo").value;
-//     const _linea = document.getElementById("linea").value;
-//     const _proceso = document.getElementById("proceso").value;
-//     const _dia = document.getElementById("dia").value;
-
-//     const fila="<tr><td>"+_num+"</td><td>"+_cod+"</td><td>"+_linea+"</td><td>"+_proceso+"</td><td>"+_dia+"</td><td><select name='Status'><option value='No_Iniciado' selected>No Iniciado</option> <option value='En_progreso'>En Progreso</option> <option value='Completado'>Completado</option></select></td>"+"<td><button id='btn_borrar' onclick='borrar(this)'>Borrar</button></td></tr>";
-
-//     const btn = document.createElement("tr");
-//    	btn.innerHTML=fila;
-//     document.getElementById("tablita").appendChild(btn);
-    
-
-// }
-// ///////////funcion de borrar
-// function borrar(t)
-//     {
-//         const td = t.parentNode;
-//         const tr = td.parentNode;
-//         const table = tr.parentNode;
-//         table.removeChild(tr);
-//     }
- 
