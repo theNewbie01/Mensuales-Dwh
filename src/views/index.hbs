@@ -1,0 +1,86 @@
+  <div class="header">
+        <h1 class="titulo">MENSUALES DWH-MOVIL</h1>
+  
+        <br>
+        <br>
+        
+    
+
+    <div class ="container">
+            <table class="table">
+                <thead>
+                    
+                <tr>
+                    <th > # </th>
+                    <th> COD </th>
+                    <th> LINEA </th>
+                    <th> PROCESO </th>
+                    <th> DIA </th>
+                    <th> STATUS </th>   
+                    <th>  </th>
+                  
+                </tr>
+             
+                </thead>
+               
+                <tr class="formulario">
+                    <td> <input id="numero" type="text"name="#" placeholder="#"></td>
+                   <td> <input id="codigo" type="text" name="COD" placeholder="Codigo"></td>
+                   <td> <input id="linea" type="text"name="LINEA" placeholder="Linea"></td>
+                   <td> <input id="proceso" type="text"name="PROCESO" placeholder="Nombre del proceso"></td>
+                   <td> <input id="dia" type="text"name="DIA"  placeholder="Día"> </td>
+                   <td = class="Status"></td>
+                   
+                   <td><button id="btn_guardar" onclick="guardar()">Ingresar</button></td>  
+
+                   
+                   
+                    </tr>
+                <tr>
+                    <td>01</td>
+                    <td>0166</td>
+                    <td>2</td>
+                    <td>0166_TRAFICO_MEDIO_USUARIOS</td>
+                    <td>01</td>
+                    <td >
+                        <select name="Status">
+                            <option value="No_Iniciado" selected>No Iniciado</option>                           
+                            <option value="En_progreso">En Progreso</option>  
+                            <option value="Completado">Completado</option>       
+                         
+                         </select>
+                    </td>
+                                       
+                    <td><button id="btn_borrar" onclick="borrar()">Borrar</button></td>                  
+
+                </tr>
+                <tbody id="tablita">
+
+                </tbody>    
+            </table>
+    </div>
+    
+    <br>
+    <br>
+   <div class="footer">
+
+    
+       <select class ="todos" name="todos">
+        <option value="" >TODOS</option>
+        <option value="Linea1">Linea 1</option>        
+        <option value="Linea2">Linea 2</option>        
+        <option value="Linea3">Linea 3</option>
+        
+        </select>
+
+       <button>Completados</button>
+       <button>Progreso</button>
+       <button>Faltante</button>
+       <button>Grafica</button>
+
+       
+        
+   
+
+
+   </div>
