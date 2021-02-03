@@ -32,3 +32,18 @@ Se creara una aplicación donde se puedan validar los procesos mensuales de la o
 /*views -- archivos html que se envian al navegador al cliente
 
 
+## conf. package.json
+
+*  "start": "node src/index.js", --npm start
+*   "dev": "nodemon src/index.js"--npm run dev
+
+## conf. mongoDb
+
+   const mongoose = require('mongoose')
+ 
+   mongoose.connect('mongodb://localhost/Dwh', {useNewUrlParser: true, useUnifiedTopology: true})
+   .then(db => console.log('DB is connect'))
+   .catch(err => console.error(err));
+
+   module.exports = mongoose;               
+ 

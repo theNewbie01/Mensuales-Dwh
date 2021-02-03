@@ -1,34 +1,30 @@
+require('dotenv').config();
+const app = require('./server');
 
-const bodyParser = require('body-parser'); //modulo para la lectura de lso archivos tipo Jason
-const express = require("express"); 
-
-const app = express();
-
-const { mongoose } = require('./conexion');
-const { update } = require('./Schema');
-const Dwh = require('./Schema')
+ //modulo para la lectura de lso archivos tipo Jason
+const { mongoose } = require('./database');
+const Dwh = require('./models/Schema')
 
  //se configura el puerto 3000
-app.set('port', process.env.PORT || 3000);
 
 
-                 ///se llama al puerto
+
+ ///obtengo la variable del puerto
 app.listen(app.get('port'),() => {
   console.log('Server on port', app.get('port'));
 });
 
-app.use(bodyParser.json()) 
-app.use(bodyParser.urlencoded({extended:true}));
+
+
 
 ////Me muestra lo insertado  en la URL indicada
   app.get('/api',(req,res)=>{
      Dwh.find({},(err,insertar) => {
       if(err) return res.status(500).send({message:`Error al realizar la peticion:${err}`})
       if(!insertar) return res.status(404).send({message:`No existen productos`})
-      res.send(200,{insertar})
-     });
+       res.status(200).send({insertar})
    })
-  
+  });
    ///////////// Metodo Get para realizar busquedas por ID
    app.get('/api/:id',(req, res)=>{
      let insertarId = req.params.id
