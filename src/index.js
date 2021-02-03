@@ -5,16 +5,11 @@ const app = require('./server');
 const { mongoose } = require('./database');
 const Dwh = require('./models/Schema')
 
- //se configura el puerto 3000
-
-
 
  ///obtengo la variable del puerto
 app.listen(app.get('port'),() => {
   console.log('Server on port', app.get('port'));
 });
-
-
 
 
 ////Me muestra lo insertado  en la URL indicada

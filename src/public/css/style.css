@@ -13,7 +13,7 @@ body{
     width: 100vw;
     left:0;
     top: 0;
-    position: fixed;
+   
 
 }
 
@@ -36,6 +36,7 @@ table tr th {
     padding-right:8px;
     text-align:center;
     border: 2px solid black;
+   
 }
 
 table tr td {
@@ -45,6 +46,7 @@ table tr td {
     margin: 30px;
     text-align:center;
     border: 2px solid black;
+    
 }
 tr:nth-child(even){
     background-color:rgb(197, 245, 119);
