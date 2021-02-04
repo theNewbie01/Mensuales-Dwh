@@ -47,3 +47,12 @@ Se creara una aplicación donde se puedan validar los procesos mensuales de la o
 
    module.exports = mongoose;               
  
+ ## conf. handlebars
+
+ app.engine('.hbs', exphbs({
+    defaultLayout:'main',
+    layoutsDir: path.join(app.get('views'),'layouts'),
+    partialsDir: path.join(app.get('views'), 'partials'),
+    extname: '.hbs'
+}))
+app.set('view engine','.hbs');

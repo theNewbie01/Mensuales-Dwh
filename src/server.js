@@ -29,6 +29,7 @@ app.use(bodyParser.json())
 
 //Routes -- rutas
 app.use(require('./routes/index.routes'));
+app.use(require('./routes/app.routes'));
 //  app.get('/', (req,res)=>{
 //      res.render('index')
 // });
