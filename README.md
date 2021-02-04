@@ -9,7 +9,7 @@ Se creara una aplicación donde se puedan validar los procesos mensuales de la o
 *npm init ---- instala package.json
 *npm install express --Framework nos ayuda a crear un servidor
 *connect-flash -- comunicacion entre paginas para leer mensajes
-*bcryptjs --- modulo de cifrao que ayuda a ejecutar algoritmos
+*bcryptjs --- modulo de cifrado que ayuda a ejecutar algoritmos
 *express-handlebars -- crear vistas y archivos html para enviar
 *express-session -- guarda sesiones en el servidor
 *method -override -- permite enviar metodos put y delete desde el formulario

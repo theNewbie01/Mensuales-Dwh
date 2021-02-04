@@ -1,17 +1,28 @@
 
 const appCtrl= {};
+const form = require('../models/Schema')
+
 
 appCtrl.renderAppForm =(req, res) =>{
     res.render('partials/form')
 };
 
-appCtrl.createNewapp =(req, res) =>{
-    console.log(req.body)
+appCtrl.createNewapp = async (req, res) =>{
+    const{ codigo, grupo, proceso, ejecucion } = req.body;
+   const newform = new form ({
+        codigo:codigo,
+        linea:grupo,
+        proceso: proceso,
+        dia:ejecucion
+    }
+)
+   await newform.save();
     res.send('elemento creado')
 };
 
-appCtrl.listaapp = (req , res) =>{
-    res.send('Lista de archivos')
+appCtrl.listaapp = async(req , res) =>{
+ const formulario = await form.find()
+ res.render('users/form', {formulario})
 };
 
 appCtrl.renderEditForm = (req, res) =>{
