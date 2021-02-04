@@ -2,10 +2,11 @@
 const appCtrl= {};
 
 appCtrl.renderAppForm =(req, res) =>{
-    res.send('app add')
+    res.render('partials/form')
 };
 
 appCtrl.createNewapp =(req, res) =>{
+    console.log(req.body)
     res.send('elemento creado')
 };
 

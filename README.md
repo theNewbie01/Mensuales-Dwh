@@ -48,6 +48,7 @@ Se creara una aplicación donde se puedan validar los procesos mensuales de la o
    module.exports = mongoose;               
  
  ## conf. handlebars
+const exphbs = require('express-handlebars');
 
  app.engine('.hbs', exphbs({
     defaultLayout:'main',
@@ -56,3 +57,17 @@ Se creara una aplicación donde se puedan validar los procesos mensuales de la o
     extname: '.hbs'
 }))
 app.set('view engine','.hbs');
+
+## body.parser
+const bodyParser = require('body-parser');
+
+app.use(bodyParser.urlencoded({extended:true})); // cada vez que llegan datos de un formulario lo convierte en formato Json
+app.use(bodyParser.json()) 
+
+## static files 
+
+ app.use(express.static(path.join(__dirname , 'public')))
+
+ ## routes
+
+ app.use(require('./routes/index.routes'));

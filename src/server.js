@@ -2,6 +2,7 @@ const express = require ('express');
 const path = require('path');
 const bodyParser = require('body-parser');
 const exphbs = require('express-handlebars');
+const morgan = require('morgan');
 ////Inicializacion del servidor
 const app = express();
 
@@ -11,6 +12,7 @@ const app = express();
 
 app.set('port', process.env.PORT || 3000); //indico nombre de la variable y el valor
 app.set('views', path.join(__dirname, 'views')) // dejo una configuracion para que la carpeta pueda ser vista desde cualqueir S.O
+
  ////configuro handle-bars y establezco la carpeta views para los html
 app.engine('.hbs', exphbs({
     defaultLayout:'main',
@@ -19,10 +21,11 @@ app.engine('.hbs', exphbs({
     extname: '.hbs'
 }))
 app.set('view engine','.hbs');
+
 ///Middlewars -- funciones que se ejecutan a medida que van llegando peticiones
 app.use(bodyParser.urlencoded({extended:true})); // cada vez que llegan datos de un formulario lo convierte en formato Json
 app.use(bodyParser.json()) 
-
+app.use(morgan('dev'));
 
 //Global Variables-- varares globales
 

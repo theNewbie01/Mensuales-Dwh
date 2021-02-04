@@ -10,7 +10,7 @@ body{
     margin: 0;
     padding: 0;
     border: none;
-    width: 100vw;
+    width: 100%;
     left:0;
     top: 0;
    
@@ -18,15 +18,18 @@ body{
 }
 
 .table{
-    background-color: chartreuse;
-    width: 80vw;
+    background-color: black;
+    width: 80%;
     border-collapse: collapse;
     border:solid;
     margin:auto;
     padding: 10px;
 }
+.celdas {
+    background-color: chartreuse;
+}
 
-table tr th {
+ tr th {
     
     background-color:#4caf50;
     color: white;
@@ -39,7 +42,7 @@ table tr th {
    
 }
 
-table tr td {
+ tr td {
     
     border: solid 1px #ddd; 
     padding:8px;

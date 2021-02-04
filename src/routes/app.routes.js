@@ -14,7 +14,7 @@ const {
 ////new
 router.get("/app/add", renderAppForm);
 
-router.post("/app/add", createNewapp);
+router.post("/app/add-new", createNewapp);
 
 ///get
 
