@@ -21,7 +21,7 @@ appCtrl.createNewapp = async (req, res) =>{
 };
 
 appCtrl.listaapp = async(req , res) =>{
- const formulario = await form.find()
+ const formulario = await form.find().lean();//se agrega .lena() para que lo pase a formato JSON
  res.render('users/form', {formulario})
 };
 

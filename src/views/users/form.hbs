@@ -1,7 +1,69 @@
-    <div >
-   
-    <h1> PRUEBA </h1>
-            <DIV><P> {{ formulario}}
-                
-            </P></DIV>
+
+
+          <table class="table">
+                <thead>
+                    
+                <tr>
+                    <th > # </th>
+                    <th> COD </th>
+                    <th> LINEA </th>
+                    <th> PROCESO </th>
+                    <th> DIA </th>
+                    <th> STATUS </th>   
+                    <th>  </th>
+                  
+                </tr>
+             
+                </thead>
+               
+                 {{#each formulario}}
+               
+                 
+                <tr CLASS="celdas">
+                    <td></td>
+                    <td>{{codigo}}</td>
+                    <td>{{linea}}</td>
+                    <td>{{proceso}}</td>
+                    <td>{{dia}}</td>
+                    <td >
+                        <select name="Status">
+                            <option value="No_Iniciado" selected>No Iniciado</option>                           
+                            <option value="En_progreso">En Progreso</option>  
+                            <option value="Completado">Completado</option>       
+                         
+                         </select>
+                    </td>
+                                    
+                    <td><button id="btn_borrar" onclick="borrar()">Borrar</button></td>                  
+                    {{/each }}    
+                </tr>
+                <tbody id="tablita">
+
+                </tbody>    
+            </table>
     </div>
+    
+    <br>
+    <br>
+   <div class="footer">
+
+    
+       <select class ="todos" name="todos">
+        <option value="" >TODOS</option>
+        <option value="Linea1">Linea 1</option>        
+        <option value="Linea2">Linea 2</option>        
+        <option value="Linea3">Linea 3</option>
+        
+        </select>
+
+       <button>Completados</button>
+       <button>Progreso</button>
+       <button>Faltante</button>
+       <button>Grafica</button>
+
+       
+        
+   
+
+
+   </div>
