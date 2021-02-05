@@ -34,7 +34,16 @@
                          </select>
                     </td>
                                     
-                    <td><button id="btn_borrar" onclick="borrar()">Borrar</button></td>                  
+                    <td>
+                        <form action="/app/delete/{{_id}}?_method=DELETE" method="POST">
+                        <input type="hidden" name= "_method" value ="DELETE">
+                        <button type="submit" class="fa fa-trash-o"></button>
+                        </form>
+                        
+                      <a href="/app/edit/{{_id}}"><button id="btn_editar" class="fa fa-pencil" ></button></a>
+                      
+                    </td>
+                                     
                     {{/each }}    
                 </tr>
                 <tbody id="tablita">

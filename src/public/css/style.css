@@ -1,11 +1,11 @@
 
 body{
-    background-color: cornflowerblue;
+    background-color: white;
 }
 
 .titulo{
     
-    background-color: green;
+    background-color: skyblue;
     text-align: center;
     margin: 0;
     padding: 0;
@@ -18,7 +18,7 @@ body{
 }
 
 .table{
-    background-color: black;
+    background-color: rgb(240, 217, 17);
     width: 80%;
     border-collapse: collapse;
     border:solid;
@@ -26,13 +26,13 @@ body{
     padding: 10px;
 }
 .celdas {
-    background-color: chartreuse;
+    background-color: white;
 }
 
  tr th {
     
     background-color:#4caf50;
-    color: white;
+    color: black;
     padding-top: 12px;
     padding-bottom: 8px;
     padding-left: 8px;
@@ -44,15 +44,16 @@ body{
 
  tr td {
     
-    border: solid 1px #ddd; 
+    border: solid 1px rgb(252, 22, 22); 
     padding:8px;
     margin: 30px;
     text-align:center;
+
     border: 2px solid black;
     
 }
 tr:nth-child(even){
-    background-color:rgb(197, 245, 119);
+    background-color:rgb(133, 238, 177);
 }
 /* button{
     border: solid 1px #ddd; 

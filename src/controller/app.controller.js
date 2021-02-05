@@ -17,7 +17,7 @@ appCtrl.createNewapp = async (req, res) =>{
     }
 )
    await newform.save();
-    res.send('elemento creado')
+    res.redirect('/app')
 };
 
 appCtrl.listaapp = async(req , res) =>{
@@ -25,16 +25,21 @@ appCtrl.listaapp = async(req , res) =>{
  res.render('users/form', {formulario})
 };
 
-appCtrl.renderEditForm = (req, res) =>{
-    res.send('render edit form')
+appCtrl.renderEditForm = async (req, res) =>{
+    const edit = await form.findById(req.params.id).lean();
+    res.render('partials/editar',{edit});
+    
 }
 
-appCtrl.UpdateForm =(req,res) =>{
-    res.send('update app')
+appCtrl.UpdateForm =async (req,res) =>{
+    const{codigo, grupo, proceso, ejecucion } = req.body
+   await form.findByIdAndUpdate(req.params.id,{codigo:codigo,grupo:grupo, proceso:proceso, ejecucion:ejecucion}).lean();
+    res.redirect('/app')
 }
 
-appCtrl.DeleteForm =(req,res) =>{
-    res.send(' Delete form')
+appCtrl.DeleteForm =async (req,res) =>{
+    await form.findByIdAndDelete(req.params.id)
+    res.redirect('/app')
 }
 module.exports = appCtrl;
 

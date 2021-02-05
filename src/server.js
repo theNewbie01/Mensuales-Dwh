@@ -3,6 +3,7 @@ const path = require('path');
 const bodyParser = require('body-parser');
 const exphbs = require('express-handlebars');
 const morgan = require('morgan');
+const methodOverrider = require('method-override')
 ////Inicializacion del servidor
 const app = express();
 
@@ -26,6 +27,7 @@ app.set('view engine','.hbs');
 app.use(bodyParser.urlencoded({extended:true})); // cada vez que llegan datos de un formulario lo convierte en formato Json
 app.use(bodyParser.json()) 
 app.use(morgan('dev'));
+app.use(methodOverrider('_method'))
 
 //Global Variables-- varares globales
 

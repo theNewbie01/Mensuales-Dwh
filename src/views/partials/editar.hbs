@@ -1,0 +1,25 @@
+<div class="col-md-4 mx-auto" > 
+  <form action="/app/edit/{{edit._id}}?_method=PUT" method ="POST">
+    <input type="hidden" name="_method" value="PUT">
+          <div class="mb-3">
+            <label for="recipient-name"  class="col-form-label">Codigo:</label>
+            <input type="text" name="codigo" class="form-control" id="recipient-name" value="{{edit.codigo}}">
+          </div>
+           <div class="mb-3">
+            <label for="recipient-name" class="col-form-label">Grupo:</label>
+            <input type="text" name="grupo" class="form-control" id="recipient-name" value="{{edit.linea}}">
+          </div>
+           <div class="mb-3">
+            <label for="recipient-name" class="col-form-label">Nombre del Proceso:</label>
+            <input type="text" name="proceso" class="form-control" id="recipient-name" value="{{edit.proceso}}">
+          </div>
+           <div class="mb-3">
+            <label for="recipient-name" class="col-form-label">Dia de Ejecucion:</label>
+            <input type="text" name="ejecucion" class="form-control" id="recipient-name" value="{{edit.dia}}">
+          </div>
+         <div class="modal-footer">
+             <button  class="btn btn-Primary">SAVE</button>
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        </div>
+     </form>
+     </div>
