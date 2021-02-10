@@ -26,6 +26,7 @@ body{
     border:solid;
     margin:auto;
     padding: 10px;
+    
 }
 .celdas {
     background-color: white;
@@ -88,3 +89,21 @@ input{
     margin: 120px;
     padding: 10px;
 }
+.btns{
+    width: 80%;
+    display: flex;
+    
+    
+}
+.cuatro  {
+    
+       display: right;
+       margin-right: 440px;
+        
+    }
+
+
+
+      
+
+
